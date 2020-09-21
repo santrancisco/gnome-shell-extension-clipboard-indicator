@@ -454,6 +454,9 @@ const ClipboardIndicator = Lang.Class({
 
     _refreshIndicator: function () {
         if (PRIVATEMODE) return; // Private mode, do not.
+	
+	// If current focus windows name contain keeweb - do not process.
+	if (global.display.focus_window.get_title().toLowerCase().match("keeweb") != null) return;
 
         let that = this;
 
